@@ -1,24 +1,30 @@
-# DYNIbex FastAF(fine) — Quick Computation of Zonotope from Dynibex
-
-Ce programme illustre une méthode pour :
-
-- manipuler des représentations **affines incertaines** avec [**DynIbex**](https://perso.ensta-paris.fr/~chapoutot/dynibex/),  
-- générer les **sommets candidats** d’un **zonotope**,  
-- calculer son **enveloppe convexe** à l’aide de [**Qhull**](http://www.qhull.org/),  
-- extraire et afficher les **sommets de l’enveloppe convexe**.  
-
-Il a été développé dans le cadre de la recherche à l’**ENSTA Paris**  
-(projet STARTS - CIEDS - Institut Polytechnique).
+Here’s the **English translation** of your README:
 
 ---
 
-## Dépendances
-Pour compiler et exécuter ce programme, vous devez avoir installés :
+````markdown
+# DYNIbex FastAF(fine) — Quick Computation of Zonotope from Dynibex
 
-- [Ibex/DynIbex](https://perso.ensta-paris.fr/~chapoutot/dynibex/) **!Utiliser les sources (/dynibex-XX/src) perso dans mon repo!**
+This program illustrates a method to:
+
+- manipulate **uncertain affine representations** with [**DynIbex**](https://perso.ensta-paris.fr/~chapoutot/dynibex/),  
+- generate the **candidate vertices** of a **zonotope**,  
+- compute its **convex hull** using [**Qhull**](http://www.qhull.org/),  
+- extract and display the **vertices of the convex hull**.  
+
+It was developed as part of research at **ENSTA Paris**  
+(STARTS Project - CIEDS - Institut Polytechnique).
+
+---
+
+## Dependencies
+To compile and run this program, you need:
+
+- [Ibex/DynIbex](https://perso.ensta-paris.fr/~chapoutot/dynibex/)  
+  **⚠️ Use the sources (`/dynibex-XX/src`) from my repo!**  
 - [Qhull](http://www.qhull.org/)
 
-### Installation Qhull (Ubuntu/Debian)
+### Install Qhull (Ubuntu/Debian)
 ```bash
 sudo apt-get install qhull-bin libqhull-dev
 ````
@@ -27,15 +33,15 @@ sudo apt-get install qhull-bin libqhull-dev
 
 ## Compilation
 
-Le projet est compilé via un **Makefile**.
+The project is compiled using a **Makefile**.
 
-Compilation :
+Compile:
 
 ```bash
 make
 ```
 
-Exécution :
+Run:
 
 ```bash
 ./simulation.out
@@ -43,68 +49,67 @@ Exécution :
 
 ---
 
-## Structure du code
+## Code Structure
 
-### 0. Représentation affine (`AffineDecomp`)
+### 0. Affine Representation (`AffineDecomp`)
 
-* `center` : valeur centrale,
-* `coeffs` : coefficients associés aux variables de bruit `eps_i`,
-* `garbage` : intervalle représentant l’erreur.
+* `center`: central value,
+* `coeffs`: coefficients associated with noise variables `eps_i`,
+* `garbage`: interval representing the error.
 
-Outils :
+Utilities:
 
-* `make_affine` : crée une forme affine DynIbex depuis ma forme perso,
-* `decompose_affine` : convertit en format interne depuis dynibex,
-* `DyniAff2Vec` : transforme un vecteur affine DynIbex en `vector<AffineDecomp>`.
-
----
-
-### 1. Pipeline complet
-
-* `Affine2Vertices` :
-
-  1. génère les sommets candidats via `candidate_vertices`,
-  2. applique Qhull pour obtenir l’enveloppe convexe.
+* `make_affine`: creates a DynIbex affine form from the custom format,
+* `decompose_affine`: converts from DynIbex to the internal format,
+* `DyniAff2Vec`: converts a DynIbex affine vector into a `vector<AffineDecomp>`.
 
 ---
 
+### 1. Full Pipeline
 
-### 2. Génération de sommets candidats
-
-* `build_generators` : construit les générateurs du zonotope,
-* `generate_sign_combinations` : toutes les combinaisons de signes possibles,
-* `candidate_vertices` : calcule les sommets candidats (centre + combinaisons).
-
----
-
-### 3. Enveloppe convexe avec Qhull
-
-* `computeConvexHullVertices` : prend un `std::vector<std::vector<double>>`
-  et retourne les sommets de l’enveloppe convexe.
+* `Affine2Vertices`:
+Compute the vertices from a Faffulli affine form from DynIbex
+  1. generates candidate vertices with `candidate_vertices`,
+  2. applies Qhull to compute the convex hull.
 
 ---
 
+### 2. Candidate Vertex Generation
 
-### 4. Exemple principal (`main`)
-
-* Définit deux variables affines (`x1`, `x2`),
-* Construit un vecteur affine (`yinit_aff`),
-* Calcule les sommets du zonotope avec `Affine2Vertices`,
-* Affiche le résultat.
-
-Une **simulation différentielle (Van der Pol)** est incluse en commentaire pour illustrer l’intégration avec DynIbex.
+* `build_generators`: constructs the zonotope generators,
+* `generate_sign_combinations`: enumerates all possible sign combinations,
+* `candidate_vertices`: computes the candidate vertices (center + combinations).
 
 ---
 
-## Exemple d’exécution
-Sortie (console) :
+### 3. Convex Hull with Qhull
+
+* `computeConvexHullVertices`: takes a `std::vector<std::vector<double>>`
+  and returns the convex hull vertices.
+
+---
+
+### 4. Main Example (`main`)
+
+* Defines two affine variables (`x1`, `x2`),
+* Builds an affine vector (`yinit_aff`),
+* Computes the zonotope vertices with `Affine2Vertices`,
+* Prints the result.
+
+A **differential simulation (Van der Pol)** is provided in comments to illustrate integration with DynIbex.
+
+---
+
+## Example Run
+
+Console output:
 
 ```
 AffineDecomp vector (2 elements):
   [0] 4 + 0.1*eps_1 + 0.1*eps_2 + 0.1*eps_3 + 0.25*eps_4 + [-0, 0]
   [1] 2 - 0.08*eps_1 + 0.15*eps_2 + 0.05*eps_3 + [-0, 0]
 Known generator : eps_1 ; eps_2 ; eps_3 ; eps_4 ; 
-Sommets de l'enveloppe convexe :
+Convex hull vertices:
 3.65 2.18
 4.35 2.28
 3.85 2.28
@@ -113,11 +118,12 @@ Sommets de l'enveloppe convexe :
 4.35 1.82
 4.55 2.12
 4.15 1.72
-
 ```
 
 ---
 
-## 📖 Licence
+## 📖 License
 
-Ce programme est distribué sous licence **GNU LGPL**.
+This program is distributed under the **GNU LGPL** license.
+
+```
