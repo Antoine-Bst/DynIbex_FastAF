@@ -15,7 +15,7 @@ Il a été développé dans le cadre de la recherche à l’**ENSTA Paris**
 ## Dépendances
 Pour compiler et exécuter ce programme, vous devez avoir installés :
 
-- [Ibex/DynIbex](https://perso.ensta-paris.fr/~chapoutot/dynibex/) **!Utiliser la verision perso dans mon repo!**
+- [Ibex/DynIbex](https://perso.ensta-paris.fr/~chapoutot/dynibex/) **!Utiliser les sources (/dynibex-XX/src) perso dans mon repo!**
 - [Qhull](http://www.qhull.org/)
 
 ### Installation Qhull (Ubuntu/Debian)
