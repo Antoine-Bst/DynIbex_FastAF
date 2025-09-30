@@ -121,4 +121,3 @@ A **differential simulation (Van der Pol)** is provided in comments to illustrat
 
 This program is distributed under the **GNU LGPL** license.
 
-```
