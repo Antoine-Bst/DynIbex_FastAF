@@ -1,4 +1,4 @@
-# DYNIbex — Quick Computation of Zonotope from Dynibex
+# DYNIbex FastAF(fine) — Quick Computation of Zonotope from Dynibex
 
 Ce programme illustre une méthode pour :
 
