@@ -11,6 +11,13 @@ It was developed as part of research at **ENSTA Paris**
 (STARTS Project - CIEDS - Institut Polytechnique).
 
 ---
+****************
+Image: Zonotope computed from an affine form.
+<p align="center">
+  <img src="zonoex.png" alt="zonotope" width="100%">
+</p>
+
+****************
 
 ## Dependencies
 To compile and run this program, you need:
