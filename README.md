@@ -43,7 +43,7 @@ Exécution :
 
 ---
 
-## 🧩 Structure du code
+## Structure du code
 
 ### 0. Représentation affine (`AffineDecomp`)
 
