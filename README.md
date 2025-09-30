@@ -1,8 +1,3 @@
-Here’s the **English translation** of your README:
-
----
-
-````markdown
 # DYNIbex FastAF(fine) — Quick Computation of Zonotope from Dynibex
 
 This program illustrates a method to:
