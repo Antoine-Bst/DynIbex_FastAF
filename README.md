@@ -44,6 +44,28 @@ Run:
 
 ---
 
+## Example Run
+
+Console output:
+
+```
+AffineDecomp vector (2 elements):
+  [0] 4 + 0.1*eps_1 + 0.1*eps_2 + 0.1*eps_3 + 0.25*eps_4 + [-0, 0]
+  [1] 2 - 0.08*eps_1 + 0.15*eps_2 + 0.05*eps_3 + [-0, 0]
+Known generator : eps_1 ; eps_2 ; eps_3 ; eps_4 ; 
+Convex hull vertices:
+3.65 2.18
+4.35 2.28
+3.85 2.28
+3.65 1.72
+3.45 1.88
+4.35 1.82
+4.55 2.12
+4.15 1.72
+```
+
+---
+
 ## Code Structure
 
 ### 0. Affine Representation (`AffineDecomp`)
@@ -92,28 +114,6 @@ Compute the vertices from a Faffulli affine form from DynIbex
 * Prints the result.
 
 A **differential simulation (Van der Pol)** is provided in comments to illustrate integration with DynIbex.
-
----
-
-## Example Run
-
-Console output:
-
-```
-AffineDecomp vector (2 elements):
-  [0] 4 + 0.1*eps_1 + 0.1*eps_2 + 0.1*eps_3 + 0.25*eps_4 + [-0, 0]
-  [1] 2 - 0.08*eps_1 + 0.15*eps_2 + 0.05*eps_3 + [-0, 0]
-Known generator : eps_1 ; eps_2 ; eps_3 ; eps_4 ; 
-Convex hull vertices:
-3.65 2.18
-4.35 2.28
-3.85 2.28
-3.65 1.72
-3.45 1.88
-4.35 1.82
-4.55 2.12
-4.15 1.72
-```
 
 ---
 
