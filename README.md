@@ -1,6 +1,5 @@
 # DYNIbex — Quick Computation of Zonotope from Dynibex
 
-## 📌 Description
 Ce programme illustre une méthode pour :
 
 - manipuler des représentations **affines incertaines** avec [**DynIbex**](https://perso.ensta-paris.fr/~chapoutot/dynibex/),  
@@ -13,7 +12,7 @@ Il a été développé dans le cadre de la recherche à l’**ENSTA Paris**
 
 ---
 
-## ⚙️ Dépendances
+## Dépendances
 Pour compiler et exécuter ce programme, vous devez avoir installés :
 
 - [Ibex/DynIbex](https://perso.ensta-paris.fr/~chapoutot/dynibex/) **!Utiliser la verision perso dans mon repo!**
@@ -26,7 +25,7 @@ sudo apt-get install qhull-bin libqhull-dev
 
 ---
 
-## 🏗️ Compilation
+## Compilation
 
 Le projet est compilé via un **Makefile**.
 
