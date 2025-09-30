@@ -67,6 +67,23 @@ Convex hull vertices:
 ---
 
 ## Code Structure
+---
+
+## Affine Arithmetic
+
+Uncertain quantities are represented as:
+
+```
+x = x0 + x1·ε1 + x2·ε2 + ... + xn·εn   ,   εi ∈ [-1, 1]
+```
+
+Here:
+
+* `x0` = central (nominal) value
+* `xi` = deviation coefficients
+* `εi` = noise symbols (shared across computations)
+
+---
 
 ### 0. Affine Representation (`AffineDecomp`)
 
